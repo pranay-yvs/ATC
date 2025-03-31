@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATC Inaugural Event | ALIET Techpreneur Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFD700; /* Gold/Yellow */
+            --primary-light: #FFEEAA;
+            --primary-dark: #FFC000;
+            --accent: #000000; /* Black */
+            --dark: #222222;
+            --darker: #111111;
+            --light: #F8F8F8;
+            --lighter: #FFFFFF;
+            --white: #FFFFFF;
+            --gray: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--darker);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--accent);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .event-date {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.1)), url('https://www.shutterstock.com/image-photo/group-college-students-discussing-about-260nw-2222335743.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .event-date-large {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* About Club */
+        .about-club {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Event Highlights */
+        .highlights {
+            background: var(--light);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .highlight-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        /* Guest Speakers */
+        .speakers {
+            background: var(--white);
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .speaker-card {
+            text-align: center;
+        }
+
+        .speaker-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary);
+        }
+
+        .speaker-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speaker-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .speaker-title {
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Venue */
+        .venue {
+            background: var(--light);
+        }
+
+        .venue-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .venue-map {
+            flex: 1;
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .venue-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .venue-details {
+            flex: 1;
+        }
+
+        .venue-address {
+            margin-top: 20px;
+        }
+
+        .venue-address p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .venue-address i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--primary);
+            color: var(--accent);
+            text-align: center;
+            padding: 60px 0;
+            background-image: url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+            background-blend-mode: overlay;
+            background-opacity: 0.05;
+        }
+
+        .cta .section-title {
+            color: var(--accent);
+        }
+
+        .cta .section-title:after {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content, .venue-content {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .logo-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="atc-logo.jpg" alt="ATC Logo" class="logo-img">
+                <span class="logo-text">Techpreneur Club</span>
+            </div>
+            <div class="event-date">March 30, 2025</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <img src="atc-logo.jpg" alt="ATC Logo" style="height: 80px; margin-bottom: 20px;">
+            <h1 class="hero-title">ALIET Techpreneur Club <span style="color: var(--primary);">Inauguration</span></h1>
+            <div class="event-date-large">March 30, 2025 | 9:00 AM - 4:00 PM</div>
+            <p class="hero-subtitle">Join us as we launch the official platform for student innovators and future tech entrepreneurs at ALIET</p>
+            <a href="#register" class="btn btn-primary">Register Now</a>
+        </div>
+    </section>
+
+    <!-- About Club -->
+    <section class="about-club" id="about">
+        <div class="container">
+            <h2 class="section-title">About The Club</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="card">
+                        <p>The ALIET Techpreneur Club (ATC) is a student-led initiative to foster innovation and entrepreneurship among the student community. Our mission is to:</p>
+                        <ul style="margin: 20px 0 20px 20px; color: var(--gray);">
+                            <li>Provide a platform for tech innovation</li>
+                            <li>Connect students with industry mentors</li>
+                            <li>Develop entrepreneurial skills</li>
+                            <li>Support student startups</li>
+                        </ul>
+                        <p>This inaugural event marks the beginning of an exciting journey towards creating the next generation of tech entrepreneurs.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://media.istockphoto.com/id/1461631542/photo/group-of-happy-students-having-chat-with-talking-each-other-while-sitting-on-college-campus.jpg?s=612x612&w=0&k=20&c=nB1wuPB-JuX3YIdoNSJDRgolfbiqQu2Tjj_kdUor_pE=" alt="Techpreneur Club">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Highlights -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <h2 class="section-title">Event Highlights</h2>
+            <div class="highlights-grid">
+                <div class="card highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Keynote Address</h3>
+                    <p style="color: var(--gray);">Inspirational talks from industry leaders about the future of tech entrepreneurship</p>
+                </div>
+                <div class="card highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Idea Pitching</h3>
+                    <p style="color: var(--gray);">Selected students will present their innovative tech ideas to a panel of experts</p>
+                </div>
+                <div class="card highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Networking</h3>
+                    <p style="color: var(--gray);">Connect with fellow students, faculty, and industry professionals</p>
+                </div>
+                <div class="card highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Club Launch</h3>
+                    <p style="color: var(--gray);">Official inauguration of the ATC with membership signups and committee announcements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest Speakers -->
+    <section class="speakers" id="speakers">
+        <div class="container">
+            <h2 class="section-title">Guest Speakers</h2>
+            <div class="speakers-grid">
+                <div class="card speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Smith">
+                    </div>
+                    <h4 class="speaker-name">Dr. Smith</h4>
+                    <p class="speaker-title">AI Specialist, TechCorp</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Keynote: "Future of AI in Entrepreneurship"</p>
+                </div>
+                <div class="card speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Doe">
+                    </div>
+                    <h4 class="speaker-name">Jane Doe</h4>
+                    <p class="speaker-title">Founder, StartupX</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">"From Campus to Corporation"</p>
+                </div>
+                <div class="card speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Alex Johnson">
+                    </div>
+                    <h4 class="speaker-name">Alex Johnson</h4>
+                    <p class="speaker-title">VC Investor</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">"Funding Your Tech Venture"</p>
+                </div>
+                <div class="card speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah Williams">
+                    </div>
+                    <h4 class="speaker-name">Sarah Williams</h4>
+                    <p class="speaker-title">Blockchain Expert</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">"Emerging Tech Opportunities"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue -->
+    <section class="venue" id="venue">
+        <div class="container">
+            <h2 class="section-title">Event Venue</h2>
+            <div class="venue-content">
+                <div class="venue-map">
+                    <iframe src="https://maps.google.com/maps?q=ALIET&output=embed" allowfullscreen></iframe>
+                </div>
+                <div class="venue-details">
+                    <div class="card">
+                        <h3>ALIET Main Auditorium</h3>
+                        <div class="venue-address">
+                            <p><i class="fas fa-map-marker-alt"></i> ALIET Campus, Hyderabad</p>
+                            <p><i class="fas fa-clock"></i> March 30, 2025 | 9:00 AM - 4:00 PM</p>
+                            <p><i class="fas fa-phone"></i> +91 9876543210 (Event Coordinator)</p>
+                            <p><i class="fas fa-envelope"></i> atc@aliet.ac.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="register">
+        <div class="container">
+            <h2 class="section-title">Ready to Join Us?</h2>
+            <p style="margin-bottom: 20px; font-weight: 500;">Limited seats available for this exclusive inaugural event</p>
+            <a href="#" class="btn btn-primary" style="background: var(--accent); color: var(--primary); border-color: var(--accent);">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="atc-logo.jpg" alt="ATC Logo" class="footer-logo">
+            <p>ALIET Techpreneur Club | Empowering Student Innovators</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="margin-top: 20px; color: var(--primary);">&copy; 2025 ATC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
